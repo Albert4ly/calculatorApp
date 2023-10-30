@@ -1,4 +1,82 @@
 :root {
    box-sizing: border-box;
+
+/*variables size*/
+--calculator-cnt-height: 100vh;
+
+--display-cnt-width: 98%;
+--display-cnt-height: 13%;
+--last-pushed-btns-height: 29%;
+--last-pushed-nr-height: 64%;
+
+--btns-cnt-width: 98%;
+--btns-cnt-height: 77%;
+--btn-width: 23.5%;
+--btn-height: 15.8%;
+
+--display-cnt-landscape-height: 20%;
+--last-pushed-btns-height: 29%;
+--last-pushed-nr-height: 64%;
+
+--btns-cnt-height: 76%;
 }
 
+.calculator__cnt {
+   height: var(--calculator-cnt-height);
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.display__cnt {
+   width: var(--display-cnt-width);
+   height: var(--display-cnt-height);
+   margin: 5% 0 10% 0;
+}
+
+.last__pushed__btns {
+   height: var(--last-pushed-btns-height);
+   margin: 1% 0 1% 0;
+}
+
+.last__pushed__nr {
+   height: var(--last-pushed-nr-height);
+   margin: 0 0 1% 0;
+}
+
+.btns__cnt {
+   width: var(--btns-cnt-width);
+   height: var(--btns-cnt-height);
+   display: inline-block;
+   text-align: center;
+}
+
+.btn {
+   width: var(--btn-width);
+   height: var(--btn-height);
+   margin: .3vh 0;
+}
+
+@media  ( orientation: landscape) {
+
+.display__cnt {
+   height: var(--display-cnt-landscape-height);
+   margin: 2% 0 3% 0;
+}
+
+.last__pushed__btns {
+   height: var(--last-pushed-btns-height);
+   margin: 1% 0 1% 0;  
+}
+
+.btns_cnt {
+   height: var(--btns-cnt-height);
+   margin: 1% 0 5% 0;
+}
+
+.last__pushed__nr {
+   height: var(--last-pushed-nr-height);
+   margin: 0 0 1% 0;
+}
+
+}
