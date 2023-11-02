@@ -8,6 +8,10 @@ let currentPushedNrClone = '';
 let pushedOperator = '';
 let concatenatedStrs = '';
 
+function displayNr(currentPushedNr) {
+   displayPushedNr.innerHTML = currentPushedNr;
+}
+
 function charactersAllocation(currentValueBtn) {
    const signsArr = ['%', 'CE', 'C', 'X', 'f', 'x^', '√', '/', 'x', '*', '-', '+', '+/-', '.', '='];
    const basicOperatorsArr = ['x', '-', '+', '/', '='];
@@ -35,6 +39,7 @@ function charactersAllocation(currentValueBtn) {
 function init(e) {
    currentValueBtn = e.target.value;
    charactersAllocation(currentValueBtn);
+   displayNr(currentPushedNr);
 }
 
 btns.addEventListener('click', init, true);
