@@ -12,6 +12,10 @@ function displayNr(currentPushedNr) {
    displayPushedNr.innerHTML = currentPushedNr;
 }
 
+function displayLastBtns(concatenatedStrs) {
+   displayLastPushedBtns.innerHTML = concatenatedStrs;
+}
+
 function charactersAllocation(currentValueBtn) {
    const signsArr = ['%', 'CE', 'C', 'X', 'f', 'x^', '√', '/', 'x', '*', '-', '+', '+/-', '.', '='];
    const basicOperatorsArr = ['x', '-', '+', '/', '='];
@@ -40,6 +44,7 @@ function init(e) {
    currentValueBtn = e.target.value;
    charactersAllocation(currentValueBtn);
    displayNr(currentPushedNr);
+   displayLastBtns(concatenatedStrs);
 }
 
 btns.addEventListener('click', init, true);
