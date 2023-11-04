@@ -5,6 +5,7 @@ const displayLastPushedBtns = document.querySelector('.last__pushed__btns');
 let currentValueBtn = '';
 let currentPushedNr = '';
 let currentPushedNrClone = '';
+let currentPushedNrClone2 = '';
 let pushedOperator = '';
 let concatenatedStrs = '';
 
@@ -29,11 +30,13 @@ function charactersAllocation(currentValueBtn) {
       if (pushedOperator.length !== 0) {
          currentPushedNr = '';
          currentPushedNr += currentValueBtn;
+         currentPushedNrClone2 += currentPushedNr;
          pushedOperator = '';
       }
    }
 
    if (basicOperatorsArr.includes(currentValueBtn)) {
+
       pushedOperator += currentValueBtn;
       concatenatedStrs = currentPushedNr;
       concatenatedStrs += currentValueBtn;
