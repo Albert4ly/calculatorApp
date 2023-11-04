@@ -9,6 +9,11 @@ let currentPushedNrClone2 = '';
 let pushedOperator = '';
 let concatenatedStrs = '';
 
+let isBoolean = null;
+
+let digitToMathOperation = null;
+let digitToMathOperation2 = null;
+
 function displayNr(currentPushedNr) {
    displayPushedNr.innerHTML = currentPushedNr;
 }
@@ -64,6 +69,7 @@ function init(e) {
    charactersAllocation(currentValueBtn);
    displayNr(currentPushedNr);
    displayLastBtns(concatenatedStrs);
+   dataTypeConversion(currentPushedNrClone, currentPushedNrClone2);
 }
 
 btns.addEventListener('click', init, true);
