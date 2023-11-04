@@ -37,9 +37,16 @@ function charactersAllocation(currentValueBtn) {
 
    if (basicOperatorsArr.includes(currentValueBtn)) {
 
-      pushedOperator += currentValueBtn;
-      concatenatedStrs = currentPushedNr;
-      concatenatedStrs += currentValueBtn;
+      if (concatenatedStrs.charAt(concatenatedStrs.length - 1) !== currentValueBtn) {
+         pushedOperator += currentValueBtn;
+         concatenatedStrs = currentPushedNr;
+         concatenatedStrs += currentValueBtn;
+      }
+
+      if (concatenatedStrs.charAt(concatenatedStrs.length - 1) === currentValueBtn) {
+         isBoolean = true;
+      }
+      
    }
 }
 
