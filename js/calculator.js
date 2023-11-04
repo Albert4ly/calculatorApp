@@ -17,6 +17,15 @@ function displayLastBtns(concatenatedStrs) {
    displayLastPushedBtns.innerHTML = concatenatedStrs;
 }
 
+
+function dataTypeConversion(currentPushedNrClone, currentPushedNrClone2) {
+
+   if (isBoolean === true) {
+      digitToMathOperation = Number(currentPushedNrClone);
+      digitToMathOperation2 = Number(currentPushedNrClone2);
+   }
+}
+
 function charactersAllocation(currentValueBtn) {
    const signsArr = ['%', 'CE', 'C', 'X', 'f', 'x^', '√', '/', 'x', '*', '-', '+', '+/-', '.', '='];
    const basicOperatorsArr = ['x', '-', '+', '/', '='];
