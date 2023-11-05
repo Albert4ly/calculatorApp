@@ -15,12 +15,34 @@ let isBoolean = null;
 let digitToMathOperation = null;
 let digitToMathOperation2 = null;
 
+let resultOfOperation = null;
+
 function displayNr(currentPushedNr) {
    displayPushedNr.innerHTML = currentPushedNr;
 }
 
 function displayLastBtns(concatenatedStrs) {
    displayLastPushedBtns.innerHTML = concatenatedStrs;
+}
+
+function result(digitToMathOperation, digitToMathOperation2, pushedOperatorClone) {
+
+   if (pushedOperatorClone === '+') {
+      resultOfOperation  = digitToMathOperation + digitToMathOperation2;
+   }
+   
+   if (pushedOperatorClone === '-') {
+      resultOfOperation = digitToMathOperation - digitToMathOperation2;
+   }
+   
+   if (pushedOperatorClone === 'x') {
+      resultOfOperation = digitToMathOperation * digitToMathOperation2;
+   }
+   
+   if (pushedOperatorClone === '/') {
+      resultOfOperation = digitToMathOperation / digitToMathOperation2;
+   }
+   
 }
 
 function dataTypeConversion(currentPushedNrClone, currentPushedNrClone2) {
