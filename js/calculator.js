@@ -29,7 +29,7 @@ function dataTypeConversion(currentPushedNrClone, currentPushedNrClone2) {
       digitToMathOperation = Number(currentPushedNrClone);
       digitToMathOperation2 = Number(currentPushedNrClone2);
    }
-   
+
 }
 
 function charactersAllocation(currentValueBtn) {
@@ -69,6 +69,8 @@ function charactersAllocation(currentValueBtn) {
 function init(e) {
    currentValueBtn = e.target.value;
    charactersAllocation(currentValueBtn);
+   dataTypeConversion(currentPushedNrClone, currentPushedNrClone2);
+   result(digitToMathOperation, digitToMathOperation2, pushedOperatorClone);
    displayNr(currentPushedNr);
    displayLastBtns(concatenatedStrs);
 }
