@@ -7,6 +7,7 @@ let currentPushedNr = '';
 let currentPushedNrClone = '';
 let currentPushedNrClone2 = '';
 let pushedOperator = '';
+let pushedOperatorClone = '';
 let concatenatedStrs = '';
 
 let isBoolean = null;
@@ -22,13 +23,13 @@ function displayLastBtns(concatenatedStrs) {
    displayLastPushedBtns.innerHTML = concatenatedStrs;
 }
 
-
 function dataTypeConversion(currentPushedNrClone, currentPushedNrClone2) {
 
    if (isBoolean === true) {
       digitToMathOperation = Number(currentPushedNrClone);
       digitToMathOperation2 = Number(currentPushedNrClone2);
    }
+   
 }
 
 function charactersAllocation(currentValueBtn) {
@@ -53,6 +54,7 @@ function charactersAllocation(currentValueBtn) {
 
       if (concatenatedStrs.charAt(concatenatedStrs.length - 1) !== currentValueBtn) {
          pushedOperator += currentValueBtn;
+         pushedOperatorClone = pushedOperator;
          concatenatedStrs = currentPushedNr;
          concatenatedStrs += currentValueBtn;
       }
@@ -69,7 +71,6 @@ function init(e) {
    charactersAllocation(currentValueBtn);
    displayNr(currentPushedNr);
    displayLastBtns(concatenatedStrs);
-   dataTypeConversion(currentPushedNrClone, currentPushedNrClone2);
 }
 
 btns.addEventListener('click', init, true);
