@@ -10,25 +10,24 @@ let pushedOperator = '';
 let pushedOperatorClone = '';
 let pushedOperatorClone2 = '';
 let concatenatedStrs = '';
-let counter = 0;
+let count = 0;
 
 let isBoolean = null;
 
-let digitToMathOperation = null;
-let digitToMathOperation2 = null;
+let digitToMathOperation = 0;
+let digitToMathOperation2 = 0;
 
-let resultOfOperation = null;
+let resultOfOperation = 0;
+let resultOfOperation2 = 0;
 
 function displayNr(currentPushedNr) {
    displayPushedNr.innerHTML = currentPushedNr;
 }
 
-function displayResult(resultOfOperation, pushedOperatorClone2) {
+function displayResult(resultOfOperation, pushedOperatorClone) {
    
-   if (counter > 3) {
       displayPushedNr.innerHTML = resultOfOperation;
-      displayLastPushedBtns.innerHTML = resultOfOperation + pushedOperatorClone2;
-   }
+      displayLastPushedBtns.innerHTML = resultOfOperation + pushedOperatorClone;
 
 }
 
@@ -38,10 +37,15 @@ function displayLastBtns(concatenatedStrs) {
 
 function result(digitToMathOperation, digitToMathOperation2, pushedOperatorClone) {
 
-   if (pushedOperatorClone === '+') {
+   if (pushedOperatorClone === '+' && digitToMathOperation2 !== 0 ) {
       resultOfOperation = digitToMathOperation + digitToMathOperation2; 
+      resultOfOperation2 = resultOfOperation;
    }
-   
+
+   if (pushedOperatorClone === '+' && digitToMathOperation2 === 0) {
+      resultOfOperation = resultOfOperation2 + digitToMathOperation;
+   }
+
    if (pushedOperatorClone === '-') {
       resultOfOperation = digitToMathOperation - digitToMathOperation2;
    }
@@ -65,20 +69,20 @@ function dataTypeConversion(currentPushedNrClone, currentPushedNrClone2) {
 
 }
 
-function charactersAllocation(currentValueBtn,) {
+function charactersAllocation(currentValueBtn, resultOfOperation, pushedOperatorClone2) {
    const signsArr = ['%', 'CE', 'C', 'X', 'f', 'x^', '√', '/', 'x', '*', '-', '+', '+/-', '.', '='];
    const basicOperatorsArr = ['x', '-', '+', '/', '='];
-   counter++; 
-   // counter to reset after four iterations
 
    if (!signsArr.includes(currentValueBtn)) {
 
       if (pushedOperator.length === 0) {
 
-         if (counter > 4) {
+         if (count > 4) {
             currentPushedNr = '';
-            pushedOperatorClone = '';
             concatenatedStrs = '';
+            concatenatedStrs = resultOfOperation + pushedOperatorClone;
+            currentPushedNrClone = '';
+            currentPushedNrClone2 = '';
 
          }
 
@@ -114,7 +118,8 @@ function charactersAllocation(currentValueBtn,) {
 
 function init(e) {
    currentValueBtn = e.target.value;
-   charactersAllocation(currentValueBtn);
+   count++; 
+   charactersAllocation(currentValueBtn, resultOfOperation, pushedOperatorClone2);
    dataTypeConversion(currentPushedNrClone, currentPushedNrClone2);
    result(digitToMathOperation, digitToMathOperation2, pushedOperatorClone);
    displayNr(currentPushedNr);
