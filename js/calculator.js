@@ -13,9 +13,6 @@ let pushedOperatorClone2 = '';
 let concatenatedStrs = '';
 
 const nrTab = [];
-// let count = 0;
-
-// let isBoolean = null;
 
 let digitToMathOperation = 0;
 let digitToMathOperation2 = 0;
@@ -25,6 +22,11 @@ let resultOfOperation2 = 0;
 let resultOfOperation3 = 0;
 
 const basicOperatorsArr = ['x', '-', '+', '/', '='];
+
+function resetAfterResult() {
+   currentPushedNrClone = '';
+   currentPushedNrClone2 = '';
+}
 
 function displayNr(currentPushedNr) {
    displayPushedNr.innerHTML = currentPushedNr;
