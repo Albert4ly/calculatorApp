@@ -28,8 +28,17 @@ function resetAfterResult() {
    currentPushedNrClone2 = '';
 }
 
-function displayNr(currentPushedNr) {
-   displayPushedNr.innerHTML = currentPushedNr;
+function displayNr(currentPushedNr, resultOfOperation, pushedOperator) {
+   
+   if ((resultOfOperation < 1) || (pushedOperator.length < 1)) {
+      displayPushedNr.innerHTML = currentPushedNr;
+   } 
+
+   if (resultOfOperation > 1 && pushedOperator.length > 0) {
+      displayPushedNr.innerHTML = resultOfOperation;
+      resetAfterResult();
+   }
+
 }
 
 function displayResult(resultOfOperation, pushedOperatorClone) {
