@@ -6,19 +6,25 @@ let currentValueBtn = '';
 let currentPushedNr = '';
 let currentPushedNrClone = '';
 let currentPushedNrClone2 = '';
+let currentPushedNrClone3 = '';
 let pushedOperator = '';
 let pushedOperatorClone = '';
 let pushedOperatorClone2 = '';
 let concatenatedStrs = '';
-let count = 0;
 
-let isBoolean = null;
+const nrTab = [];
+// let count = 0;
+
+// let isBoolean = null;
 
 let digitToMathOperation = 0;
 let digitToMathOperation2 = 0;
 
 let resultOfOperation = 0;
 let resultOfOperation2 = 0;
+let resultOfOperation3 = 0;
+
+const basicOperatorsArr = ['x', '-', '+', '/', '='];
 
 function displayNr(currentPushedNr) {
    displayPushedNr.innerHTML = currentPushedNr;
@@ -128,12 +134,3 @@ function init(e) {
 }
 
 btns.addEventListener('click', init, true);
-
-
-
-
-
-
-
-
-
