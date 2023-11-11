@@ -42,7 +42,19 @@ function displayNr(currentPushedNr, resultOfOperation, pushedOperator) {
 }
 
 function displayLastBtns(concatenatedStrs) {
-   displayLastPushedBtns.innerHTML = concatenatedStrs;
+
+   if ((resultOfOperation < 1) || (pushedOperator.length < 1)) {
+      displayLastPushedBtns.innerHTML = concatenatedStrs;
+   }
+
+   if ((resultOfOperation > 1) && (pushedOperator.length < 1)) {
+      displayLastPushedBtns.innerHTML = resultOfOperation2 + pushedOperatorClone2;
+   }
+   
+   if ((resultOfOperation > 1) && (pushedOperator.length > 0)) {
+      displayLastPushedBtns.innerHTML = resultOfOperation + pushedOperator;
+   }
+   
 }
 
 function result(digitToMathOperation, digitToMathOperation2, pushedOperatorClone) {
