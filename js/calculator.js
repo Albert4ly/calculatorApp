@@ -78,13 +78,20 @@ function concatenateStrs(currentPushedNrClone3, pushedOperator) {
    concatenatedStrs = currentPushedNrClone3 + pushedOperator;
 }
 
-function dataTypeConversion(currentPushedNrClone, currentPushedNrClone2) {
-
-   if (isBoolean === true) {
-      digitToMathOperation = Number(currentPushedNrClone);
-      digitToMathOperation2 = Number(currentPushedNrClone2);
+function dataTypeConversion(currentPushedNrClone, currentPushedNrClone2, resultOfOperation2, nrTab) {
+    
+   if(nrTab.length > 1){
+      digitToMathOperation = Number(nrTab[0]);
+      digitToMathOperation2 = Number(nrTab[1]);
+      nrTab.length = 0;
    }
 
+   if((nrTab.length < 2 ) && (resultOfOperation2 !== 0)){
+      digitToMathOperation = Number(resultOfOperation2);
+      digitToMathOperation2 = Number(nrTab[0])
+      nrTab.length = 0;
+   }
+      
 }
 
 function charactersAllocation(currentValueBtn, resultOfOperation, pushedOperatorClone2) {
