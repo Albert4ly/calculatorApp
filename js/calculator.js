@@ -94,31 +94,24 @@ function dataTypeConversion(currentPushedNrClone, currentPushedNrClone2, resultO
       
 }
 
-function charactersAllocation(currentValueBtn, resultOfOperation, pushedOperatorClone2) {
+function charactersAllocation(currentValueBtn) {
    const signsArr = ['%', 'CE', 'C', 'X', 'f', 'x^', '√', '/', 'x', '*', '-', '+', '+/-', '.', '='];
-   const basicOperatorsArr = ['x', '-', '+', '/', '='];
 
    if (!signsArr.includes(currentValueBtn)) {
 
       if (pushedOperator.length === 0) {
 
-         if (count > 4) {
-            currentPushedNr = '';
-            concatenatedStrs = '';
-            concatenatedStrs = resultOfOperation + pushedOperatorClone;
-            currentPushedNrClone = '';
-            currentPushedNrClone2 = '';
-
-         }
-
          currentPushedNr += currentValueBtn; 
          currentPushedNrClone = currentPushedNr;
+         currentPushedNrClone3 = currentPushedNrClone;
       }
 
       if (pushedOperator.length !== 0) {
          currentPushedNr = '';
-         currentPushedNr += currentValueBtn;
+         currentPushedNr = currentValueBtn;
          currentPushedNrClone2 += currentPushedNr;
+         pushedOperatorClone = pushedOperator;
+         pushedOperatorClone2 = pushedOperator;
          pushedOperator = '';
       }
 
@@ -126,18 +119,10 @@ function charactersAllocation(currentValueBtn, resultOfOperation, pushedOperator
 
    if (basicOperatorsArr.includes(currentValueBtn)) {
 
-      if (concatenatedStrs.charAt(concatenatedStrs.length - 1) !== currentValueBtn) {
+         nrTab.push(currentPushedNr);
          pushedOperator += currentValueBtn;
          pushedOperatorClone = pushedOperator;
-         pushedOperatorClone2 = pushedOperatorClone;
-         concatenatedStrs = currentPushedNr;
-         concatenatedStrs += currentValueBtn;
-      }
 
-      if (concatenatedStrs.charAt(concatenatedStrs.length - 1) === currentValueBtn) {
-         isBoolean = true;
-      }
-      
    }
 }
 
