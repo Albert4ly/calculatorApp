@@ -41,13 +41,6 @@ function displayNr(currentPushedNr, resultOfOperation, pushedOperator) {
 
 }
 
-function displayResult(resultOfOperation, pushedOperatorClone) {
-   
-      displayPushedNr.innerHTML = resultOfOperation;
-      displayLastPushedBtns.innerHTML = resultOfOperation + pushedOperatorClone;
-
-}
-
 function displayLastBtns(concatenatedStrs) {
    displayLastPushedBtns.innerHTML = concatenatedStrs;
 }
