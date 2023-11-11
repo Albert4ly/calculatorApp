@@ -128,13 +128,13 @@ function charactersAllocation(currentValueBtn) {
 
 function init(e) {
    currentValueBtn = e.target.value;
-   count++; 
-   charactersAllocation(currentValueBtn, resultOfOperation, pushedOperatorClone2);
-   dataTypeConversion(currentPushedNrClone, currentPushedNrClone2);
-   result(digitToMathOperation, digitToMathOperation2, pushedOperatorClone);
-   displayNr(currentPushedNr);
+   charactersAllocation(currentValueBtn);
+   dataTypeConversion(currentPushedNrClone, currentPushedNrClone2, resultOfOperation2, nrTab);
+   result(digitToMathOperation, digitToMathOperation2, pushedOperator, pushedOperatorClone)
+   displayNr(currentPushedNr, resultOfOperation, pushedOperator);
+   dependingOf(pushedOperator, concatenatedStrs, resultOfOperation2, pushedOperatorClone);
    displayLastBtns(concatenatedStrs);
-   displayResult(resultOfOperation, pushedOperatorClone);
 }
+
 
 btns.addEventListener('click', init, true);
