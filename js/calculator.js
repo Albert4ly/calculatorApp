@@ -66,6 +66,14 @@ function result(digitToMathOperation, digitToMathOperation2, pushedOperator, pus
    
 }
 
+function dependingOf(pushedOperator, resultOfOperation2, pushedOperatorClone) {
+
+   if (basicOperatorsArr.includes(pushedOperator)) {
+      concatenateStrs(currentPushedNrClone3, pushedOperator)
+   }
+   
+}
+
 function dataTypeConversion(currentPushedNrClone, currentPushedNrClone2) {
 
    if (isBoolean === true) {
