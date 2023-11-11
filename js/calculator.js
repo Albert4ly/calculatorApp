@@ -57,27 +57,11 @@ function displayLastBtns(concatenatedStrs) {
    
 }
 
-function result(digitToMathOperation, digitToMathOperation2, pushedOperatorClone) {
+function result(digitToMathOperation, digitToMathOperation2, pushedOperator, pushedOperatorClone) {
 
-   if (pushedOperatorClone === '+' && digitToMathOperation2 !== 0 ) {
-      resultOfOperation = digitToMathOperation + digitToMathOperation2; 
+   if ((pushedOperator === '+') && (digitToMathOperation2 > 1) ) {
+      resultOfOperation = digitToMathOperation + digitToMathOperation2;
       resultOfOperation2 = resultOfOperation;
-   }
-
-   if (pushedOperatorClone === '+' && digitToMathOperation2 === 0) {
-      resultOfOperation = resultOfOperation2 + digitToMathOperation;
-   }
-
-   if (pushedOperatorClone === '-') {
-      resultOfOperation = digitToMathOperation - digitToMathOperation2;
-   }
-   
-   if (pushedOperatorClone === 'x') {
-      resultOfOperation = digitToMathOperation * digitToMathOperation2;
-   }
-   
-   if (pushedOperatorClone === '/') {
-      resultOfOperation = digitToMathOperation / digitToMathOperation2;
    }
    
 }
