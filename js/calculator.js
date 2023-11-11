@@ -71,7 +71,11 @@ function dependingOf(pushedOperator, resultOfOperation2, pushedOperatorClone) {
    if (basicOperatorsArr.includes(pushedOperator)) {
       concatenateStrs(currentPushedNrClone3, pushedOperator)
    }
-   
+
+}
+
+function concatenateStrs(currentPushedNrClone3, pushedOperator) {
+   concatenatedStrs = currentPushedNrClone3 + pushedOperator;
 }
 
 function dataTypeConversion(currentPushedNrClone, currentPushedNrClone2) {
