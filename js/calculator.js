@@ -23,6 +23,31 @@ let resultOfOperation3 = 0;
 
 const basicOperatorsArr = ['x', '-', '+', '/', '='];
 
+function clearDisplay(currentValueBtn) {
+
+   if (currentValueBtn.includes('CE')) {
+   currentValueBtn = '';
+   currentPushedNr = '';
+   currentPushedNrClone = '';
+   currentPushedNrClone2 = '';
+   currentPushedNrClone3 = '';
+   pushedOperator = '';
+   pushedOperatorClone = '';
+   pushedOperatorClone2 = '';
+   concatenatedStrs = '';
+
+   nrTab.length = 0;
+
+   digitToMathOperation = 0;
+   digitToMathOperation2 = 0;
+
+   resultOfOperation = 0;
+   resultOfOperation2 = 0;
+   resultOfOperation3 = 0;
+   }
+
+}
+
 function resetAfterResult() {
    currentPushedNrClone = '';
    currentPushedNrClone2 = '';
@@ -128,6 +153,7 @@ function charactersAllocation(currentValueBtn) {
 
 function init(e) {
    currentValueBtn = e.target.value;
+   clearDisplay(currentValueBtn)
    charactersAllocation(currentValueBtn);
    dataTypeConversion(currentPushedNrClone, currentPushedNrClone2, resultOfOperation2, nrTab);
    result(digitToMathOperation, digitToMathOperation2, pushedOperator, pushedOperatorClone)
