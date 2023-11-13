@@ -103,7 +103,7 @@ function concatenateStrs(currentPushedNrClone3, pushedOperator) {
    concatenatedStrs = currentPushedNrClone3 + pushedOperator;
 }
 
-function dataTypeConversion(currentPushedNrClone, currentPushedNrClone2, resultOfOperation2, nrTab) {
+function dataTypeConversion(resultOfOperation2, nrTab) {
     
    if(nrTab.length > 1){
       digitToMathOperation = Number(nrTab[0]);
@@ -155,7 +155,7 @@ function init(e) {
    currentValueBtn = e.target.value;
    clearDisplay(currentValueBtn)
    charactersAllocation(currentValueBtn);
-   dataTypeConversion(currentPushedNrClone, currentPushedNrClone2, resultOfOperation2, nrTab);
+   dataTypeConversion(resultOfOperation2, nrTab);
    result(digitToMathOperation, digitToMathOperation2, pushedOperator, pushedOperatorClone)
    displayNr(currentPushedNr, resultOfOperation, pushedOperator);
    dependingOf(pushedOperator, concatenatedStrs, resultOfOperation2, pushedOperatorClone);
