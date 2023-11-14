@@ -82,7 +82,7 @@ function displayLastBtns(concatenatedStrs) {
    
 }
 
-function result(digitToMathOperation, digitToMathOperation2, pushedOperator, pushedOperatorClone) {
+function result(digitToMathOperation, digitToMathOperation2, pushedOperator) {
 
    if ((pushedOperator === '+') && (digitToMathOperation2 > 1) ) {
       resultOfOperation = digitToMathOperation + digitToMathOperation2;
@@ -156,7 +156,7 @@ function init(e) {
    clearDisplay(currentValueBtn)
    charactersAllocation(currentValueBtn);
    dataTypeConversion(resultOfOperation2, nrTab);
-   result(digitToMathOperation, digitToMathOperation2, pushedOperator, pushedOperatorClone)
+   result(digitToMathOperation, digitToMathOperation2, pushedOperator)
    displayNr(currentPushedNr, resultOfOperation, pushedOperator);
    dependingOf(pushedOperator, concatenatedStrs, resultOfOperation2, pushedOperatorClone);
    displayLastBtns(concatenatedStrs);
