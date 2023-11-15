@@ -91,7 +91,7 @@ function result(digitToMathOperation, digitToMathOperation2, pushedOperator) {
    
 }
 
-function dependingOf(pushedOperator, resultOfOperation2, pushedOperatorClone) {
+function dependingOf(pushedOperator) {
 
    if (basicOperatorsArr.includes(pushedOperator)) {
       concatenateStrs(currentPushedNrClone3, pushedOperator)
@@ -158,7 +158,7 @@ function init(e) {
    dataTypeConversion(resultOfOperation2, nrTab);
    result(digitToMathOperation, digitToMathOperation2, pushedOperator)
    displayNr(currentPushedNr, resultOfOperation, pushedOperator);
-   dependingOf(pushedOperator, concatenatedStrs, resultOfOperation2, pushedOperatorClone);
+   dependingOf(pushedOperator);
    displayLastBtns(concatenatedStrs);
 }
 
