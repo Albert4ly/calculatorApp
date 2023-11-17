@@ -23,6 +23,17 @@ let resultOfOperation3 = 0;
 
 const basicOperatorsArr = ['x', '-', '+', '/', '='];
 
+function displayLastDigit(currentPushedNr, currentPushedNrClone, currentPushedNrClone2, currentPushedNrClone3) {
+   if (currentValueBtn.includes('X')) {
+      currentPushedNr = currentPushedNr.substring(0, currentPushedNr.length - 1);
+      currentPushedNrClone = currentPushedNr;
+      currentPushedNrClone2 = currentPushedNr;
+      currentPushedNrClone3 = currentPushedNr;
+      displayPushedNr.innerHTML = currentPushedNr;
+   }
+ 
+}
+
 function clearDisplay(currentValueBtn) {
 
    if (currentValueBtn.includes('CE')) {
@@ -53,11 +64,12 @@ function resetAfterResult() {
    currentPushedNrClone2 = '';
 }
 
-function displayNr(currentPushedNr, resultOfOperation, pushedOperator) {
+function displayNr(currentPushedNr, resultOfOperation, pushedOperator, newStr) {
    
    if ((resultOfOperation < 1) || (pushedOperator.length < 1)) {
       displayPushedNr.innerHTML = currentPushedNr;
    } 
+
 
    if (resultOfOperation > 1 && pushedOperator.length > 0) {
       displayPushedNr.innerHTML = resultOfOperation;
@@ -153,12 +165,13 @@ function charactersAllocation(currentValueBtn) {
 
 function init(e) {
    currentValueBtn = e.target.value;
-   clearDisplay(currentValueBtn)
+   clearDisplay(currentValueBtn);
    charactersAllocation(currentValueBtn);
    dataTypeConversion(resultOfOperation2, nrTab);
-   result(digitToMathOperation, digitToMathOperation2, pushedOperator)
+   result(digitToMathOperation, digitToMathOperation2, pushedOperator);
    displayNr(currentPushedNr, resultOfOperation, pushedOperator);
    dependingOf(pushedOperator);
+   displayLastDigit(currentPushedNr, currentPushedNrClone, currentPushedNrClone2, currentPushedNrClone3);
    displayLastBtns(concatenatedStrs);
 }
 
