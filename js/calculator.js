@@ -100,6 +100,12 @@ function result(digitToMathOperation, digitToMathOperation2, pushedOperator) {
       resultOfOperation = digitToMathOperation + digitToMathOperation2;
       resultOfOperation2 = resultOfOperation;
    }
+
+   if ((pushedOperator === 'x') && (digitToMathOperation2 > 1)) {
+      resultOfOperation = digitToMathOperation * digitToMathOperation2;
+      resultOfOperation2 = resultOfOperation;
+   }
+
    
 }
 
