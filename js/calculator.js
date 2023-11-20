@@ -34,6 +34,19 @@ function displayLastDigit(currentPushedNr, currentPushedNrClone, currentPushedNr
  
 }
 
+function compounding(currentPushedNr, currentPushedNrClone, currentPushedNrClone2, currentPushedNrClone3) {
+   
+   if (currentValueBtn.includes('x^')) {
+      currentPushedNr = Math.pow(currentPushedNr);
+      currentPushedNrClone = currentPushedNr;
+      currentPushedNrClone2 = currentPushedNr;
+      currentPushedNrClone3 = currentPushedNr;
+      displayPushedNr.innerHTML = currentPushedNr;
+   }
+   
+}
+
+
 function clearDisplay(currentValueBtn) {
 
    if (currentValueBtn.includes('CE')) {
