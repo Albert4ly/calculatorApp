@@ -37,7 +37,8 @@ function displayLastDigit(currentPushedNr, currentPushedNrClone, currentPushedNr
 function compounding(currentPushedNr, currentPushedNrClone, currentPushedNrClone2, currentPushedNrClone3) {
    
    if (currentValueBtn.includes('x^')) {
-      currentPushedNr = Math.pow(currentPushedNr);
+      let digit = Number(currentPushedNr);
+      currentPushedNr = Math.pow(digit, 2);
       currentPushedNrClone = currentPushedNr;
       currentPushedNrClone2 = currentPushedNr;
       currentPushedNrClone3 = currentPushedNr;
@@ -200,6 +201,7 @@ function init(e) {
    displayNr(currentPushedNr, resultOfOperation, pushedOperator);
    dependingOf(pushedOperator);
    displayLastDigit(currentPushedNr, currentPushedNrClone, currentPushedNrClone2, currentPushedNrClone3);
+   compounding(currentPushedNr, currentPushedNrClone, currentPushedNrClone2, currentPushedNrClone3)
    displayLastBtns(concatenatedStrs);
 }
 
