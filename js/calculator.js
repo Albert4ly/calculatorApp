@@ -111,6 +111,11 @@ function result(digitToMathOperation, digitToMathOperation2, pushedOperator) {
       resultOfOperation2 = resultOfOperation;
    }
    
+   if ((pushedOperator === '/') && (digitToMathOperation2 > 1)) {
+      resultOfOperation = digitToMathOperation / digitToMathOperation2;
+      resultOfOperation2 = resultOfOperation;
+   }
+
 }
 
 function dependingOf(pushedOperator) {
