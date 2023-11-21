@@ -201,6 +201,3 @@ function init(e) {
    compounding(currentPushedNr, currentPushedNrClone, currentPushedNrClone2, currentPushedNrClone3)
    displayLastBtns(concatenatedStrs);
 }
-
-
-btns.addEventListener('click', init, true);
