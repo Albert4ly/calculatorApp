@@ -1,4 +1,10 @@
 
+class Calculator {
+   constructor() {
+   
+   }
+}
+
 let currentValueBtn = '';
 let currentPushedNr = '';
 let currentPushedNrClone = '';
