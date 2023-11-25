@@ -1,9 +1,14 @@
-
 class Calculator {
-   constructor() {
-   
+   constructor(currentPushedNr) {
+      this.currentPushedNr = currentPushedNr;
+   }
+
+   displayDigit() {
+      return this.currentPushedNr;
    }
 }
+
+export { Calculator };
 
 let currentValueBtn = '';
 let currentPushedNr = '';
