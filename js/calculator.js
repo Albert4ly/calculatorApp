@@ -1,10 +1,12 @@
+import { displayPushedNr } from "./htmlElementsHandles.js";
+
 class Calculator {
    constructor(currentPushedNr) {
       this.currentPushedNr = currentPushedNr;
    }
 
    displayDigit() {
-      return this.currentPushedNr;
+    displayPushedNr.innerHTML = this.currentPushedNr;
    }
 }
 
