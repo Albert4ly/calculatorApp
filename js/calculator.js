@@ -1,10 +1,12 @@
+import { displayPushedNr } from "./htmlElementsHandles.js";
+
 class Calculator {
    constructor(currentPushedNr) {
       this.currentPushedNr = currentPushedNr;
    }
 
    displayDigit() {
-      return this.currentPushedNr;
+      displayPushedNr.innerHTML = this.currentPushedNr;
    }
 }
 
@@ -175,7 +177,7 @@ function charactersAllocation(currentValueBtn) {
 
       if (pushedOperator.length === 0) {
 
-         currentPushedNr += currentValueBtn; 
+         // currentPushedNr += currentValueBtn; 
          currentPushedNrClone = currentPushedNr;
          currentPushedNrClone3 = currentPushedNrClone;
       }
