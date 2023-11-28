@@ -1,5 +1,6 @@
 :root {
    box-sizing: border-box;
+   user-select: none;
 
 /*variables colors*/
 --calculator-cnt-bg-color: #DAD8E2;
