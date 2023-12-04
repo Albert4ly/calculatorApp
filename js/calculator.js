@@ -1,3 +1,5 @@
+import { displayPushedNr } from "./htmlElementsHandles.js"
+
 class Calculator {
    constructor() {
       this.memoryValue = 0;
@@ -8,7 +10,14 @@ class Calculator {
       this.repeatedValue = 0;
       this.wasEqualClicked = false;
       this.wasSpecialFunctionClicked = false;
+
+      this.bindToDisplay;
    }
+
+   bindToDisplay() {
+      
+   }
+
 }
 
 new Calculator();
