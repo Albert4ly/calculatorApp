@@ -12,6 +12,7 @@ class Calculator {
       this.wasSpecialFunctionClicked = false;
 
       this.bindToDisplay();
+      this.bindToBtns();
    }
 
    bindToDisplay() {
@@ -19,19 +20,14 @@ class Calculator {
       this.displayPushedNr = displayPushedNr;
    }
 
+   bindToBtns() {
+      btns.addEventListener('click', e => this.charactersRecognition(e.target.value));
+   }
 }
 
 new Calculator();
 
-// import { btns, displayPushedNr } from "./htmlElementsHandles.js";
-
-
-//       this.currentPushedNr = '';
-
-//       this.charactersAllocation();
-
-//    charactersAllocation() {
-//       const signsArr = ['%', 'CE', 'C', 'X', 'f', 'x^', '√', '/', 'x', '*', '-', '+', '+/-', '.', '='];
+//    charactersAllocation() {     
 
 //       if (!signsArr.includes(currentValueBtn)) {
 //          this.currentPushedNr += currentValueBtn;
@@ -39,24 +35,23 @@ new Calculator();
 //       }
 //    }
 
+// function dependingOf(pushedOperator) {
+
+//    if (basicOperatorsArr.includes(pushedOperator)) {
+//       concatenateStrs(currentPushedNrClone3, pushedOperator)
+//    }
+
+// }
+
+// function concatenateStrs(currentPushedNrClone3, pushedOperator) {
+//    concatenatedStrs = currentPushedNrClone3 + pushedOperator;
+// }
+
 //    displayDigit() {
 //     displayPushedNr.innerHTML = this.currentPushedNr;
 //    }
 // }
 
-// let currentValueBtn = '';
-
-
-// function init(e) {
-//    currentValueBtn = e.target.value;
-
-
-
-// btns.addEventListener('click', init);
-
-
-
-// // let currentValueBtn = '';
 // // let currentPushedNr = '';
 // let currentPushedNrClone = '';
 // let currentPushedNrClone2 = '';
@@ -184,18 +179,6 @@ new Calculator();
 //       resultOfOperation2 = resultOfOperation;
 //    }
 
-// }
-
-// function dependingOf(pushedOperator) {
-
-//    if (basicOperatorsArr.includes(pushedOperator)) {
-//       concatenateStrs(currentPushedNrClone3, pushedOperator)
-//    }
-
-// }
-
-// function concatenateStrs(currentPushedNrClone3, pushedOperator) {
-//    concatenatedStrs = currentPushedNrClone3 + pushedOperator;
 // }
 
 // function dataTypeConversion(resultOfOperation2, nrTab) {
