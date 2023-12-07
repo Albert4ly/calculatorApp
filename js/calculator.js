@@ -1,4 +1,4 @@
-import { displayPushedNr } from "./htmlElementsHandles.js"
+import { btns, displayPushedNr } from "./htmlElementsHandles.js"
 
 class Calculator {
    constructor() {
@@ -11,11 +11,12 @@ class Calculator {
       this.wasEqualClicked = false;
       this.wasSpecialFunctionClicked = false;
 
-      this.bindToDisplay;
+      this.bindToDisplay();
    }
 
    bindToDisplay() {
-      
+      displayPushedNr.textContent = this.displayValue;
+      this.displayPushedNr = displayPushedNr;
    }
 
 }
