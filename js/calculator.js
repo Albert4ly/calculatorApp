@@ -23,6 +23,15 @@ class Calculator {
    bindToBtns() {
       btns.addEventListener('click', e => this.charactersRecognition(e.target.value));
    }
+
+   charactersRecognition(e) {
+      const signsArr = ['%', 'CE', 'C', 'X', 'f', 'x^', '√', '/', 'x', '*', '-', '+', '+/-', '.', '='];
+
+      if (!signsArr.includes(e)) {
+         
+      }
+
+   }
 }
 
 new Calculator();
@@ -227,17 +236,4 @@ new Calculator();
 //          pushedOperatorClone = pushedOperator;
 
 //    }
-// }
-
-// function init(e) {
-   // currentValueBtn = e.target.value;
-   // clearDisplay(currentValueBtn);
-   // charactersAllocation(currentValueBtn);
-   // dataTypeConversion(resultOfOperation2, nrTab);
-   // result(digitToMathOperation, digitToMathOperation2, pushedOperator);
-   // displayNr(currentPushedNr, resultOfOperation, pushedOperator);
-   // dependingOf(pushedOperator);
-   // displayLastDigit(currentPushedNr, currentPushedNrClone, currentPushedNrClone2, currentPushedNrClone3);
-   // compounding(currentPushedNr, currentPushedNrClone, currentPushedNrClone2, currentPushedNrClone3)
-   // displayLastBtns(concatenatedStrs);
 // }
