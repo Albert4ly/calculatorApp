@@ -28,9 +28,13 @@ class Calculator {
       const signsArr = ['%', 'CE', 'C', 'X', 'f', 'x^', '√', '/', 'x', '*', '-', '+', '+/-', '.', '='];
 
       if (!signsArr.includes(e)) {
-         
+         this.concatenateNumber(e);
       }
 
+   }
+
+   concatenateNumber(e) {
+      this.displayValue = this.displayValue === null || this.displayValue === '0';
    }
 }
 
