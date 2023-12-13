@@ -21,7 +21,7 @@ class Calculator {
    }
 
    bindToBtns() {
-      btns.addEventListener('click', e => this.charactersRecognition(e.target.value));
+      btns.addEventListener('click', e => this.charactersRecognition(e));
    }
 
    charactersRecognition(e) {
@@ -34,7 +34,9 @@ class Calculator {
    }
 
    concatenateNumber(e) {
-      this.displayValue = this.displayValue === null || this.displayValue === '0';
+      this.displayValue = this.displayValue === null || this.displayValue === '0'
+         ? e.target.value
+         : this.displayValue + e.target.value;
    }
 }
 
