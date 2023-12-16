@@ -30,25 +30,18 @@ class Calculator {
       if (!signsArr.includes(e)) {
          this.concatenateNumber(e);
       }
-
    }
 
    concatenateNumber(e) {
       this.displayValue = this.displayValue === null || this.displayValue === '0'
-         ? e.target.value
-         : this.displayValue + e.target.value;
+         ? e.target.textContent
+         : this.displayValue + e.target.textContent;
+      
+      this.displayPushedNr.textContent = this.displayValue;
    }
 }
 
 new Calculator();
-
-//    charactersAllocation() {     
-
-//       if (!signsArr.includes(currentValueBtn)) {
-//          this.currentPushedNr += currentValueBtn;
-//          console.log(this.currentPushedNr);
-//       }
-//    }
 
 // function dependingOf(pushedOperator) {
 
@@ -212,17 +205,11 @@ new Calculator();
       
 // }
 
-// function charactersAllocation(currentValueBtn) {
-//    const signsArr = ['%', 'CE', 'C', 'X', 'f', 'x^', '√', '/', 'x', '*', '-', '+', '+/-', '.', '='];
+// function charactersAllocation() {
+
 
 //    if (!signsArr.includes(currentValueBtn)) {
 
-//       if (pushedOperator.length === 0) {
-
-//          currentPushedNr += currentValueBtn; 
-//          currentPushedNrClone = currentPushedNr;
-//          currentPushedNrClone3 = currentPushedNrClone;
-//       }
 
 //       if (pushedOperator.length !== 0) {
 //          currentPushedNr = '';
