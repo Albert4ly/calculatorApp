@@ -41,7 +41,7 @@ class Calculator {
    }
 }
 
-new Calculator();
+new Calculator(); 
 
 // function dependingOf(pushedOperator) {
 
