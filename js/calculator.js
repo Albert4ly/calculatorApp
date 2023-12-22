@@ -1,17 +1,62 @@
+import { displayPushedNr } from "./htmlElementsHandles.js"
+
 class Calculator {
-   constructor(currentPushedNr) {
-      this.currentPushedNr = currentPushedNr;
+   constructor() {
+      this.memoryValue = 0;
+      this.displayValue = '0';
+      this.previousValue = null;
+      this.selectedFunction = null;
+      this.isFunctionDone = false;
+      this.repeatedValue = 0;
+      this.wasEqualClicked = false;
+      this.wasSpecialFunctionClicked = false;
+
+      this.bindToDisplay;
    }
 
-   displayDigit() {
-      return this.currentPushedNr;
+   bindToDisplay() {
+      
    }
+
 }
 
-export { Calculator };
+new Calculator();
+
+// import { btns, displayPushedNr } from "./htmlElementsHandles.js";
+
+
+//       this.currentPushedNr = '';
+
+//       this.charactersAllocation();
+
+//    charactersAllocation() {
+//       const signsArr = ['%', 'CE', 'C', 'X', 'f', 'x^', '√', '/', 'x', '*', '-', '+', '+/-', '.', '='];
+
+//       if (!signsArr.includes(currentValueBtn)) {
+//          this.currentPushedNr += currentValueBtn;
+//          console.log(this.currentPushedNr);
+//       }
+//    }
+
+//    displayDigit() {
+//     displayPushedNr.innerHTML = this.currentPushedNr;
+//    }
+// }
 
 // let currentValueBtn = '';
-// let currentPushedNr = '';
+
+
+// function init(e) {
+//    currentValueBtn = e.target.value;
+
+
+
+// btns.addEventListener('click', init);
+
+
+
+// // let currentValueBtn = '';
+// // let currentPushedNr = '';
 // let currentPushedNrClone = '';
 // let currentPushedNrClone2 = '';
 // let currentPushedNrClone3 = '';
@@ -140,18 +185,6 @@ export { Calculator };
 
 // }
 
-// function dependingOf(pushedOperator) {
-
-//    if (basicOperatorsArr.includes(pushedOperator)) {
-//       concatenateStrs(currentPushedNrClone3, pushedOperator)
-//    }
-
-// }
-
-// function concatenateStrs(currentPushedNrClone3, pushedOperator) {
-//    concatenatedStrs = currentPushedNrClone3 + pushedOperator;
-// }
-
 // function dataTypeConversion(resultOfOperation2, nrTab) {
     
 //    if(nrTab.length > 1){
@@ -168,17 +201,17 @@ export { Calculator };
       
 // }
 
-// function charactersAllocation(currentValueBtn) {
-//    const signsArr = ['%', 'CE', 'C', 'X', 'f', 'x^', '√', '/', 'x', '*', '-', '+', '+/-', '.', '='];
+// function charactersAllocation() {
+
 
 //    if (!signsArr.includes(currentValueBtn)) {
 
 //       if (pushedOperator.length === 0) {
 
-      //    currentPushedNr += currentValueBtn; 
-      //    currentPushedNrClone = currentPushedNr;
-      //    currentPushedNrClone3 = currentPushedNrClone;
-      // }
+//          currentPushedNr += currentValueBtn; 
+//          currentPushedNrClone = currentPushedNr;
+//          currentPushedNrClone3 = currentPushedNrClone;
+//       }
 
 //       if (pushedOperator.length !== 0) {
 //          currentPushedNr = '';
@@ -198,17 +231,4 @@ export { Calculator };
 //          pushedOperatorClone = pushedOperator;
 
 //    }
-// }
-
-// function init(e) {
-   // currentValueBtn = e.target.value;
-   // clearDisplay(currentValueBtn);
-   // charactersAllocation(currentValueBtn);
-   // dataTypeConversion(resultOfOperation2, nrTab);
-   // result(digitToMathOperation, digitToMathOperation2, pushedOperator);
-   // displayNr(currentPushedNr, resultOfOperation, pushedOperator);
-   // dependingOf(pushedOperator);
-   // displayLastDigit(currentPushedNr, currentPushedNrClone, currentPushedNrClone2, currentPushedNrClone3);
-   // compounding(currentPushedNr, currentPushedNrClone, currentPushedNrClone2, currentPushedNrClone3)
-   // displayLastBtns(concatenatedStrs);
 // }
