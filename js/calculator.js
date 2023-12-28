@@ -27,9 +27,9 @@ class Calculator {
    charactersRecognition(e) {
       const signsArr = ['%', 'CE', 'C', 'X', 'f', 'x^', '√', '/', 'x', '*', '-', '+', '+/-', '.', '='];
 
-      if (!signsArr.includes(e)) {
+      if (!signsArr.includes(e.target.value)) {
          this.concatenateNumber(e);
-      }
+      } 
    }
 
    concatenateNumber(e) {
