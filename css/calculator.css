@@ -39,6 +39,12 @@
    margin: 5% 0 10% 0;
 }
 
+.last__pushed__nr,
+.last__pushed__btns {
+   display: flex;
+   flex-direction: row-reverse;
+}
+
 .last__pushed__btns {
    height: var(--last-pushed-btns-height);
    margin: 1% 0 1% 0;
