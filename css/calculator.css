@@ -36,7 +36,7 @@
 .display__cnt {
    width: var(--display-cnt-width);
    height: var(--display-cnt-height);
-   margin: 5% 0 10% 0;
+   margin: 5% 0 2% 0;
 }
 
 .last__pushed__nr,
