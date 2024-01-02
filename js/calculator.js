@@ -33,7 +33,7 @@ class Calculator {
    }
 
    concatenateNumber(e) {
-      this.displayValue = this.displayValue === null || this.displayValue === '0'
+      this.displayValue = this.displayValue === null || this.displayValue === '0' || this.wasSpecialFunctionClicked
          ? e.target.textContent
          : this.displayValue + e.target.textContent;
       
