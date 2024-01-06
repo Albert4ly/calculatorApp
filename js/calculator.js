@@ -22,6 +22,7 @@ class Calculator {
 
    bindToBtns() {
       btns.addEventListener('click', e => this.charactersRecognition(e));
+      memoryBtns.addEventListener('click', e => this.memoryCharactersRecognition(e));
    }
 
    charactersRecognition(e) {
