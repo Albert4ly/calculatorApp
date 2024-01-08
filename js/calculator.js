@@ -33,6 +33,19 @@ class Calculator {
       } 
    }
 
+   memoryCharactersRecognition(e) {
+      const memoryBtn = e.target.value;
+
+      switch (memoryBtn) {
+         case "MC":
+            this.memoryValue = 0;
+            break;
+         case "MR":
+            this.displayValue = this.memoryValue;
+            this.displayPushedNr.textContent = this.displayValue;
+      }
+   }
+
    concatenateNumber(e) {
       this.displayValue = this.displayValue === null || this.displayValue === '0' || this.wasSpecialFunctionClicked
          ? e.target.textContent
