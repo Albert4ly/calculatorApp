@@ -1,4 +1,4 @@
-import { displayPushedNr } from "./htmlElementsHandles.js"
+import { btns, displayPushedNr } from "./htmlElementsHandles.js"
 
 class Calculator {
    constructor() {
@@ -15,9 +15,29 @@ class Calculator {
    }
 
    bindToDisplay() {
-      
+      displayPushedNr.textContent = this.displayValue;
+      this.displayPushedNr = displayPushedNr;
    }
 
+   bindToBtns() {
+      btns.addEventListener('click', e => this.charactersRecognition(e));
+   }
+
+   charactersRecognition(e) {
+      const signsArr = ['%', 'CE', 'C', 'X', 'f', 'x^', '√', '/', 'x', '*', '-', '+', '+/-', '.', '='];
+
+      if (!signsArr.includes(e)) {
+         this.concatenateNumber(e);
+      }
+   }
+
+   concatenateNumber(e) {
+      this.displayValue = this.displayValue === null || this.displayValue === '0'
+         ? e.target.textContent
+         : this.displayValue + e.target.textContent;
+      
+      this.displayPushedNr.textContent = this.displayValue;
+   }
 }
 
 new Calculator();
