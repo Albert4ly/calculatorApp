@@ -1,4 +1,4 @@
-import { btns, memoryBtns, displayPushedNr } from "./htmlElementsHandles.js"
+import { btns, memoryBtns, displayPushedNr, displayLastPushedBtns } from "./htmlElementsHandles.js"
 
 class Calculator {
    constructor() {
