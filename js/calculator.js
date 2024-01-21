@@ -46,6 +46,8 @@ class Calculator {
             break;
          case "M+":
             this.memoryValue += this.displayValue;
+            this.displayValue = null;
+            break;
       }
    }
 
