@@ -43,6 +43,9 @@ class Calculator {
          case "MR":
             this.displayValue = this.memoryValue;
             this.displayPushedNr.textContent = this.displayValue;
+            break;
+         case "M+":
+            this.memoryValue += this.displayValue;
       }
    }
 
