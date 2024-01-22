@@ -48,6 +48,10 @@ class Calculator {
             this.memoryValue += this.displayValue;
             this.displayValue = null;
             break;
+         case "M-":
+            this.memoryValue -= this.displayValue;
+            this.displayValue = null;
+            break;
       }
    }
 
