@@ -52,7 +52,7 @@ class Calculator {
             this.memoryValue -= this.displayValue;
             this.displayValue = null;
             break;
-         case "MS";
+         case "MS":
             this.memoryValue = this.displayValue;
             this.displayValue = null;
       }
