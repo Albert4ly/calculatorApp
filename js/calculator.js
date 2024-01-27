@@ -69,41 +69,6 @@ class Calculator {
 
 new Calculator(); 
 
-// function dependingOf(pushedOperator) {
-
-//    if (basicOperatorsArr.includes(pushedOperator)) {
-//       concatenateStrs(currentPushedNrClone3, pushedOperator)
-//    }
-
-// }
-
-// function concatenateStrs(currentPushedNrClone3, pushedOperator) {
-//    concatenatedStrs = currentPushedNrClone3 + pushedOperator;
-// }
-
-//    displayDigit() {
-//     displayPushedNr.innerHTML = this.currentPushedNr;
-//    }
-// }
-
-// // let currentPushedNr = '';
-// let currentPushedNrClone = '';
-// let currentPushedNrClone2 = '';
-// let currentPushedNrClone3 = '';
-// let pushedOperator = '';
-// let pushedOperatorClone = '';
-// let pushedOperatorClone2 = '';
-// let concatenatedStrs = '';
-
-// const nrTab = [];
-
-// let digitToMathOperation = 0;
-// let digitToMathOperation2 = 0;
-
-// let resultOfOperation = 0;
-// let resultOfOperation2 = 0;
-// let resultOfOperation3 = 0;
-
 // const basicOperatorsArr = ['x', '-', '+', '/', '='];
 
 // function displayLastDigit(currentPushedNr, currentPushedNrClone, currentPushedNrClone2, currentPushedNrClone3) {
@@ -154,11 +119,6 @@ new Calculator();
 //    resultOfOperation3 = 0;
 //    }
 
-// }
-
-// function resetAfterResult() {
-//    currentPushedNrClone = '';
-//    currentPushedNrClone2 = '';
 // }
 
 // function displayNr(currentPushedNr, resultOfOperation, pushedOperator, newStr) {
@@ -231,28 +191,3 @@ new Calculator();
       
 // }
 
-// function charactersAllocation() {
-
-
-//    if (!signsArr.includes(currentValueBtn)) {
-
-
-//       if (pushedOperator.length !== 0) {
-//          currentPushedNr = '';
-//          currentPushedNr = currentValueBtn;
-//          currentPushedNrClone2 += currentPushedNr;
-//          pushedOperatorClone = pushedOperator;
-//          pushedOperatorClone2 = pushedOperator;
-//          pushedOperator = '';
-//       }
-
-//    }
-
-//    if (basicOperatorsArr.includes(currentValueBtn)) {
-
-//          nrTab.push(currentPushedNr);
-//          pushedOperator += currentValueBtn;
-//          pushedOperatorClone = pushedOperator;
-
-//    }
-// }
