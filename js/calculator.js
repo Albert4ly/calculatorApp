@@ -42,8 +42,7 @@ class Calculator {
             break;
          case "MR":
             this.displayValue = this.memoryValue;
-            this.displayPushedNr.textContent = this.displayValue;
-            break;
+            
          case "M+":
             this.memoryValue += this.displayValue;
             this.displayValue = null;
@@ -62,6 +61,15 @@ class Calculator {
       this.displayValue = this.displayValue === null || this.displayValue === '0' || this.wasSpecialFunctionClicked
          ? e.target.textContent
          : this.displayValue + e.target.textContent;
+      
+         if (this.wasEqualClicked) {
+            this.previousValue = 0;
+            this.repeatedValue = 0;
+            this.wasEqualClicked = false;
+         }
+   
+      this.wasSpecialFunctionClicked = false;
+      this.isFunctionDone = false;
       
       this.displayPushedNr.textContent = this.displayValue;
    }
