@@ -38,22 +38,24 @@ class Calculator {
 
       switch (memoryBtn) {
          case "MC":
+            this.wasSpecialFunctionClicked = true;
             this.memoryValue = 0;
             break;
          case "MR":
+            this.wasSpecialFunctionClicked = true;
             this.displayValue = this.memoryValue;
-            
+            this.displayPushedNr.textContent = this.memoryValue.toString();
          case "M+":
-            this.memoryValue += this.displayValue;
-            this.displayValue = null;
+            this.wasSpecialFunctionClicked = true;
+            this.memoryValue += Number(this.displayValue);
             break;
          case "M-":
-            this.memoryValue -= this.displayValue;
-            this.displayValue = null;
+            this.wasSpecialFunctionClicked = true;
+            this.memoryValue -= Number(this.displayValue);
             break;
          case "MS":
-            this.memoryValue = this.displayValue;
-            this.displayValue = null;
+            this.wasSpecialFunctionClicked = true;
+            this.memoryValue = Number(this.displayValue);
       }
    }
 
