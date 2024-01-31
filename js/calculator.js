@@ -33,6 +33,13 @@ class Calculator {
       } 
    }
 
+   clear() {
+      this.previousValue = 0;
+      this.selectedFunction = null;
+      this.displayValue = '0';
+      this.displayPushedNr.textContent = '0';
+   };
+
    memoryCharactersRecognition(e) {
       const memoryBtn = e.target.value;
 
