@@ -63,8 +63,7 @@ class Calculator {
             break;
          case "MR":
             this.wasSpecialFunctionClicked = true;
-            this.displayValue = this.memoryValue;
-            this.displayPushedNr.textContent = this.memoryValue.toString();
+            this.changeDisplayValue(this.memoryValue);
          case "M+":
             this.wasSpecialFunctionClicked = true;
             this.memoryValue += Number(this.displayValue);
