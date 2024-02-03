@@ -50,8 +50,7 @@ class Calculator {
    clear() {
       this.previousValue = 0;
       this.selectedFunction = null;
-      this.displayValue = '0';
-      this.displayPushedNr.textContent = '0';
+      this.changeDisplayValue(null);
    };
 
    memoryCharactersRecognition(e) {
