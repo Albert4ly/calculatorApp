@@ -127,33 +127,6 @@ new Calculator();
 //       displayPushedNr.innerHTML = currentPushedNr;
 //    }
    
-// }
-
-
-// function clearDisplay(currentValueBtn) {
-
-//    if (currentValueBtn.includes('CE')) {
-//    currentValueBtn = '';
-//    currentPushedNr = '';
-//    currentPushedNrClone = '';
-//    currentPushedNrClone2 = '';
-//    currentPushedNrClone3 = '';
-//    pushedOperator = '';
-//    pushedOperatorClone = '';
-//    pushedOperatorClone2 = '';
-//    concatenatedStrs = '';
-
-//    nrTab.length = 0;
-
-//    digitToMathOperation = 0;
-//    digitToMathOperation2 = 0;
-
-//    resultOfOperation = 0;
-//    resultOfOperation2 = 0;
-//    resultOfOperation3 = 0;
-//    }
-
-// }
 
 // function displayNr(currentPushedNr, resultOfOperation, pushedOperator, newStr) {
    
