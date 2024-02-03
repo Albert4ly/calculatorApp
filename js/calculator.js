@@ -30,8 +30,19 @@ class Calculator {
 
       if (!signsArr.includes(e.target.value)) {
          this.concatenateNumber(e);
-      } 
-   }
+      }
+
+      if (signsArr.includes(e.target.value)) {
+         const specialBtn = e.target.value;
+
+         switch (specialBtn) {
+            case "CE":
+               this.clear();
+               break;
+         }
+      }
+   };
+   
 
    clear() {
       this.previousValue = 0;
