@@ -43,6 +43,9 @@ class Calculator {
       }
    };
    
+   cancelDisplay() {
+      this.changeDisplayValue(null);
+   }
 
    clear() {
       this.previousValue = 0;
@@ -92,6 +95,11 @@ class Calculator {
       this.isFunctionDone = false;
       
       this.displayPushedNr.textContent = this.displayValue;
+   }
+
+   changeDisplayValue(value) {
+      this.displayValue = value;
+      this.displayPushedNr.textContent = value === null ? '0' : value.toString();
    }
 }
 
