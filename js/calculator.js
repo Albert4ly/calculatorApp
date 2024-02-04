@@ -27,9 +27,14 @@ class Calculator {
 
    charactersRecognition(e) {
       const signsArr = ['%', 'CE', 'C', 'X', 'f', 'x^', '√', '/', 'x', '*', '-', '+', '+/-', '.', '='];
+      const basicSignsArr = ['+', '-', 'x', '/'];
 
       if (!signsArr.includes(e.target.value)) {
          this.concatenateNumber(e);
+      }
+
+      if (basicSignsArr.includes(e.target.value)) {
+         this.addition();
       }
 
       if (signsArr.includes(e.target.value)) {
@@ -38,6 +43,9 @@ class Calculator {
          switch (specialBtn) {
             case "CE":
                this.clear();
+               break;
+            case "C":
+               this.cancelDisplay();
                break;
          }
       }
@@ -93,6 +101,34 @@ class Calculator {
       this.isFunctionDone = false;
       
       this.displayPushedNr.textContent = this.displayValue;
+   }
+
+   addition(hasRepeatedValue) {
+      this.selectedFunction = this.addition;
+
+      if (this.isFunctionDone) {
+         this.repeatedValue = Number(this.previousValue);
+         this.displayValue = '0';
+         this.wasSpecialFunctionClicked = false;
+
+         return;
+      }
+      
+      const displayValue = Number(this.displayPushedNr.textContent);
+      const previousValue = hasRepeatedValue ? this.repeatedValue : Number(this.previousValue);
+      const newValue = displayValue + previousValue;
+
+      this.isFunctionDone = true;
+      this.repeatedValue = hasRepeatedValue
+         ? this.repeatedValue
+         : this.wasEqualClicked
+            ? newValue
+            : Number(this.displayPushedNr.textContent);
+      
+      this.wasEqualClicked = false;
+      this.previousValue = newValue;
+      this.displayValue = null;
+      this.displayPushedNr.textContent = newValue; 
    }
 
    changeDisplayValue(value) {
