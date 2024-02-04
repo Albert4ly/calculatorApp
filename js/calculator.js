@@ -34,7 +34,15 @@ class Calculator {
       }
 
       if (basicSignsArr.includes(e.target.value)) {
-         this.addition();
+
+         switch (e.target.value) {
+            case "+":
+               this.addition();
+               break;
+            case "-":
+               this.substraction();
+               break;
+         }
       }
 
       if (signsArr.includes(e.target.value)) {
@@ -109,7 +117,7 @@ class Calculator {
       if (this.isFunctionDone) {
          this.repeatedValue = Number(this.previousValue);
          this.displayValue = '0';
-         this.wasSpecialFunctionClicked = false;
+         this.wasEqualClicked = false;
 
          return;
       }
@@ -131,6 +139,41 @@ class Calculator {
       this.displayPushedNr.textContent = newValue; 
    }
 
+   substraction(hasRepeatedValue) {
+      this.selectedFunction = this.substraction;
+ 
+      if (this.isFunctionDone) {
+         this.repeatedValue = Number(this.previousValue);
+         this.displayValue = '0';
+         this.wasEqualClicked = false;
+
+         return;
+      }
+      
+      const displayValue = Number(this.displayPushedNr.textContent);
+      const previousValue = hasRepeatedValue ? this.repeatedValue : Number(this.previousValue);
+
+      let newValue;
+      
+      if (this.previousValue !== null) {
+         newValue = hasRepeatedValue
+            ? displayValue - this.repeatedValue
+            : previousValue - displayValue;
+         
+         this.repeatedValue = hasRepeatedValue
+            ? this.repeatedValue
+            : this.wasEqualClicked
+               ? newValue
+               : Number(this.displayPushedNr.textContent);  
+      }
+      
+      this.isFunctionDone = true;
+      this.wasEqualClicked = false;
+      this.displayValue = null;
+      this.displayPushedNr.textContent = this.previousValue !== null ? newValue : this.displayPushedNr.textContent;
+      this.previousValue = this.previousValue !== null ? newValue : this.displayPushedNr.textContent;
+   }
+
    changeDisplayValue(value) {
       this.displayValue = value;
       this.displayPushedNr.textContent = value === null ? '0' : value.toString();
@@ -138,19 +181,6 @@ class Calculator {
 }
 
 new Calculator(); 
-
-// const basicOperatorsArr = ['x', '-', '+', '/', '='];
-
-// function displayLastDigit(currentPushedNr, currentPushedNrClone, currentPushedNrClone2, currentPushedNrClone3) {
-//    if (currentValueBtn.includes('X')) {
-//       currentPushedNr = currentPushedNr.substring(0, currentPushedNr.length - 1);
-//       currentPushedNrClone = currentPushedNr;
-//       currentPushedNrClone2 = currentPushedNr;
-//       currentPushedNrClone3 = currentPushedNr;
-//       displayPushedNr.innerHTML = currentPushedNr;
-//    }
- 
-// }
 
 // function compounding(currentPushedNr, currentPushedNrClone, currentPushedNrClone2, currentPushedNrClone3) {
    
@@ -162,21 +192,6 @@ new Calculator();
 //       currentPushedNrClone3 = currentPushedNr;
 //       displayPushedNr.innerHTML = currentPushedNr;
 //    }
-   
-
-// function displayNr(currentPushedNr, resultOfOperation, pushedOperator, newStr) {
-   
-//    if ((resultOfOperation < 1) || (pushedOperator.length < 1)) {
-//       displayPushedNr.innerHTML = currentPushedNr;
-//    } 
-
-
-//    if (resultOfOperation > 1 && pushedOperator.length > 0) {
-//       displayPushedNr.innerHTML = resultOfOperation;
-//       resetAfterResult();
-//    }
-
-// }
 
 // function displayLastBtns(concatenatedStrs) {
 
@@ -216,21 +231,5 @@ new Calculator();
 //       resultOfOperation2 = resultOfOperation;
 //    }
 
-// }
-
-// function dataTypeConversion(resultOfOperation2, nrTab) {
-    
-//    if(nrTab.length > 1){
-//       digitToMathOperation = Number(nrTab[0]);
-//       digitToMathOperation2 = Number(nrTab[1]);
-//       nrTab.length = 0;
-//    }
-
-//    if((nrTab.length < 2 ) && (resultOfOperation2 !== 0)){
-//       digitToMathOperation = Number(resultOfOperation2);
-//       digitToMathOperation2 = Number(nrTab[0])
-//       nrTab.length = 0;
-//    }
-      
 // }
 
