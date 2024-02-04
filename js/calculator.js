@@ -112,11 +112,7 @@ class Calculator {
    }
 
    addition(hasRepeatedValue) {
-      if (this.selectedFunction !== this.addition && this.selectedFunction) {
-         this.selectedFunction(hasRepeatedValue);
-      }
-
-      this.selectedFunction = this.addition;
+      this.callPreviousFuncAndAssignNew(this.addition, hasRepeatedValue);
 
       if (this.isFunctionDone) {
          this.repeatedValue = Number(this.previousValue);
@@ -144,11 +140,7 @@ class Calculator {
    }
 
    substraction(hasRepeatedValue) {
-      if (this.selectedFunction !== this.substraction && this.selectedFunction) {
-         this.selectedFunction(hasRepeatedValue);
-      }
-
-      this.selectedFunction = this.substraction;
+      this.callPreviousFuncAndAssignNew(this.substraction, hasRepeatedValue); 
  
       if (this.isFunctionDone) {
          this.repeatedValue = Number(this.previousValue);
@@ -180,6 +172,13 @@ class Calculator {
       this.displayValue = null;
       this.displayPushedNr.textContent = this.previousValue !== null ? newValue : this.displayPushedNr.textContent;
       this.previousValue = this.previousValue !== null ? newValue : this.displayPushedNr.textContent;
+   }
+
+   callPreviousFuncAndAssignNew(currentFunc, hasRepeatedValue){
+      if (this.selectedFunction !== currentFunc && this.selectedFunction) {
+         this.selectedFunction(hasRepeatedValue);
+      }
+      this.selectedFunction = currentFunc;
    }
 
    changeDisplayValue(value) {
