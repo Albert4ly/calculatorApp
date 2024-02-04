@@ -112,6 +112,10 @@ class Calculator {
    }
 
    addition(hasRepeatedValue) {
+      if (this.selectedFunction !== this.addition && this.selectedFunction) {
+         this.selectedFunction(hasRepeatedValue);
+      }
+
       this.selectedFunction = this.addition;
 
       if (this.isFunctionDone) {
@@ -140,6 +144,10 @@ class Calculator {
    }
 
    substraction(hasRepeatedValue) {
+      if (this.selectedFunction !== this.substraction && this.selectedFunction) {
+         this.selectedFunction(hasRepeatedValue);
+      }
+
       this.selectedFunction = this.substraction;
  
       if (this.isFunctionDone) {
