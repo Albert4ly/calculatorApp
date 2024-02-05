@@ -115,9 +115,7 @@ class Calculator {
       this.callPreviousFuncAndAssignNew(this.addition, hasRepeatedValue);
 
       if (this.isFunctionDone) {
-         this.repeatedValue = Number(this.previousValue);
-         this.displayValue = '0';
-         this.wasEqualClicked = false;
+         this.setValuesForIsFuncDone();
 
          return;
       }
@@ -172,6 +170,12 @@ class Calculator {
       this.displayValue = null;
       this.displayPushedNr.textContent = this.previousValue !== null ? newValue : this.displayPushedNr.textContent;
       this.previousValue = this.previousValue !== null ? newValue : this.displayPushedNr.textContent;
+   }
+
+   setValuesForIsFuncDone() {
+      this.repeatedValue = Number(this.previousValue);
+      this.displayValue = '0';
+      this.wasEqualClicked = false;
    }
 
    callPreviousFuncAndAssignNew(currentFunc, hasRepeatedValue){
