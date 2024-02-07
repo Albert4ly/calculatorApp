@@ -150,11 +150,7 @@ class Calculator {
 
 		this.isFunctionDone = true;
       this.getRepeatedValue();
-
-		this.wasEqualClicked = false;
-		this.previousValue = newValue;
-		this.displayValue = null;
-		this.displayPushedNr.textContent = newValue;
+      this.setValuesAfterSettingNewValue();
 	}
 
 	substraction(hasRepeatedValue) {
@@ -200,6 +196,13 @@ class Calculator {
 				: this.displayPushedNr.textContent;
    }
    
+   setValuesAfterSettingNewValue() {
+      this.wasEqualClicked = false;
+		this.previousValue = newValue;
+		this.displayValue = null;
+		this.displayPushedNr.textContent = newValue;
+   }
+
    getRepeatedValue() {
       this.repeatedValue = hasRepeatedValue
 			? this.repeatedValue
