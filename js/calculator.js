@@ -145,15 +145,11 @@ class Calculator {
 			return;
 		}
 
-      const [displayValue, previousValue] = this.getDisplayAndPreviousValue();
+		const [displayValue, previousValue] = this.getDisplayAndPreviousValue();
 		const newValue = displayValue + previousValue;
 
 		this.isFunctionDone = true;
-		this.repeatedValue = hasRepeatedValue
-			? this.repeatedValue
-			: this.wasEqualClicked
-			? newValue
-			: Number(this.displayPushedNr.textContent);
+      this.getRepeatedValue();
 
 		this.wasEqualClicked = false;
 		this.previousValue = newValue;
@@ -204,12 +200,20 @@ class Calculator {
 				: this.displayPushedNr.textContent;
    }
    
-   getDisplayAndPreviousValue() {
-      const displayValue = Number(this.displayPushedNr.textContent);
+   getRepeatedValue() {
+      this.repeatedValue = hasRepeatedValue
+			? this.repeatedValue
+			: this.wasEqualClicked
+			? newValue
+			: Number(this.displayPushedNr.textContent);
+   }
+
+	getDisplayAndPreviousValue() {
+		const displayValue = Number(this.displayPushedNr.textContent);
 		const previousValue = hasRepeatedValue
 			? this.repeatedValue
 			: Number(this.previousValue);
-   }
+	}
 
 	setValuesForIsFuncDone() {
 		this.repeatedValue = Number(this.previousValue);
