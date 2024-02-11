@@ -1,38 +1,70 @@
-import { btns, displayPushedNr } from "./htmlElementsHandles.js"
+import { btns, memoryBtns, displayPushedNr } from "./htmlElementsHandles.js"
 
 class Calculator {
-   constructor() {
-      this.memoryValue = 0;
-      this.displayValue = '0';
-      this.previousValue = null;
-      this.selectedFunction = null;
-      this.isFunctionDone = false;
-      this.repeatedValue = 0;
-      this.wasEqualClicked = false;
-      this.wasSpecialFunctionClicked = false;
+	constructor() {
+		this.memoryValue = 0;
+		this.displayValue = "0";
+		this.previousValue = null;
+		this.selectedFunction = null;
+		this.isFunctionDone = false;
+		this.repeatedValue = 0;
+		this.wasEqualClicked = false;
+		this.wasSpecialFunctionClicked = false;
 
-      this.bindToDisplay;
+      this.bindToDisplay();
+      this.bindToBtns();
    }
 
-   bindToDisplay() {
-      displayPushedNr.textContent = this.displayValue;
-      this.displayPushedNr = displayPushedNr;
-   }
+	bindToDisplay() {
+		displayPushedNr.textContent = this.displayValue;
+		this.displayPushedNr = displayPushedNr;
+	}
 
    bindToBtns() {
       btns.addEventListener('click', e => this.charactersRecognition(e));
+      memoryBtns.addEventListener('click', e => this.memoryCharactersRecognition(e));
    }
 
-   charactersRecognition(e) {
-      const signsArr = ['%', 'CE', 'C', 'X', 'f', 'x^', '√', '/', 'x', '*', '-', '+', '+/-', '.', '='];
+	charactersRecognition(e) {
+		const signsArr = [
+			"%",
+			"CE",
+			"C",
+			"X",
+			"f",
+			"x^",
+			"√",
+			"/",
+			"x",
+			"*",
+			"-",
+			"+",
+			"+/-",
+			".",
+			"=",
+		];
+		const basicSignsArr = ["+", "-", "x", "/"];
 
-      if (!signsArr.includes(e)) {
+      if (!signsArr.includes(e.target.value)) {
          this.concatenateNumber(e);
+      } 
+   }
+
+   memoryCharactersRecognition(e) {
+      const memoryBtn = e.target.value;
+
+      switch (memoryBtn) {
+         case "MC":
+            this.memoryValue = 0;
+            break;
+         case "MR":
+            this.displayValue = this.memoryValue;
+            this.displayPushedNr.textContent = this.displayValue;
       }
    }
 
    concatenateNumber(e) {
-      this.displayValue = this.displayValue === null || this.displayValue === '0'
+      this.displayValue = this.displayValue === null || this.displayValue === '0' || this.wasSpecialFunctionClicked
          ? e.target.textContent
          : this.displayValue + e.target.textContent;
       
@@ -40,42 +72,25 @@ class Calculator {
    }
 }
 
-new Calculator();
+new Calculator(); 
 
-// import { btns, displayPushedNr } from "./htmlElementsHandles.js";
+// function dependingOf(pushedOperator) {
 
-
-//       this.currentPushedNr = '';
-
-//       this.charactersAllocation();
-
-//    charactersAllocation() {
-//       const signsArr = ['%', 'CE', 'C', 'X', 'f', 'x^', '√', '/', 'x', '*', '-', '+', '+/-', '.', '='];
-
-//       if (!signsArr.includes(currentValueBtn)) {
-//          this.currentPushedNr += currentValueBtn;
-//          console.log(this.currentPushedNr);
-//       }
+//    if (basicOperatorsArr.includes(pushedOperator)) {
+//       concatenateStrs(currentPushedNrClone3, pushedOperator)
 //    }
+
+// }
+
+// function concatenateStrs(currentPushedNrClone3, pushedOperator) {
+//    concatenatedStrs = currentPushedNrClone3 + pushedOperator;
+// }
 
 //    displayDigit() {
 //     displayPushedNr.innerHTML = this.currentPushedNr;
 //    }
 // }
 
-// let currentValueBtn = '';
-
-
-// function init(e) {
-//    currentValueBtn = e.target.value;
-
-
-
-// btns.addEventListener('click', init);
-
-
-
-// // let currentValueBtn = '';
 // // let currentPushedNr = '';
 // let currentPushedNrClone = '';
 // let currentPushedNrClone2 = '';
@@ -108,7 +123,7 @@ new Calculator();
 // }
 
 // function compounding(currentPushedNr, currentPushedNrClone, currentPushedNrClone2, currentPushedNrClone3) {
-   
+
 //    if (currentValueBtn.includes('x^')) {
 //       let digit = Number(currentPushedNr);
 //       currentPushedNr = Math.pow(digit, 2);
@@ -117,53 +132,6 @@ new Calculator();
 //       currentPushedNrClone3 = currentPushedNr;
 //       displayPushedNr.innerHTML = currentPushedNr;
 //    }
-   
-// }
-
-
-// function clearDisplay(currentValueBtn) {
-
-//    if (currentValueBtn.includes('CE')) {
-//    currentValueBtn = '';
-//    currentPushedNr = '';
-//    currentPushedNrClone = '';
-//    currentPushedNrClone2 = '';
-//    currentPushedNrClone3 = '';
-//    pushedOperator = '';
-//    pushedOperatorClone = '';
-//    pushedOperatorClone2 = '';
-//    concatenatedStrs = '';
-
-//    nrTab.length = 0;
-
-//    digitToMathOperation = 0;
-//    digitToMathOperation2 = 0;
-
-//    resultOfOperation = 0;
-//    resultOfOperation2 = 0;
-//    resultOfOperation3 = 0;
-//    }
-
-// }
-
-// function resetAfterResult() {
-//    currentPushedNrClone = '';
-//    currentPushedNrClone2 = '';
-// }
-
-// function displayNr(currentPushedNr, resultOfOperation, pushedOperator, newStr) {
-   
-//    if ((resultOfOperation < 1) || (pushedOperator.length < 1)) {
-//       displayPushedNr.innerHTML = currentPushedNr;
-//    } 
-
-
-//    if (resultOfOperation > 1 && pushedOperator.length > 0) {
-//       displayPushedNr.innerHTML = resultOfOperation;
-//       resetAfterResult();
-//    }
-
-// }
 
 // function displayLastBtns(concatenatedStrs) {
 
@@ -174,11 +142,11 @@ new Calculator();
 //    if ((resultOfOperation > 1) && (pushedOperator.length < 1)) {
 //       displayLastPushedBtns.innerHTML = resultOfOperation2 + pushedOperatorClone2;
 //    }
-   
+
 //    if ((resultOfOperation > 1) && (pushedOperator.length > 0)) {
 //       displayLastPushedBtns.innerHTML = resultOfOperation + pushedOperator;
 //    }
-   
+
 // }
 
 // function result(digitToMathOperation, digitToMathOperation2, pushedOperator) {
@@ -197,7 +165,7 @@ new Calculator();
 //       resultOfOperation = digitToMathOperation - digitToMathOperation2;
 //       resultOfOperation2 = resultOfOperation;
 //    }
-   
+
 //    if ((pushedOperator === '/') && (digitToMathOperation2 > 1)) {
 //       resultOfOperation = digitToMathOperation / digitToMathOperation2;
 //       resultOfOperation2 = resultOfOperation;
@@ -226,12 +194,6 @@ new Calculator();
 
 //    if (!signsArr.includes(currentValueBtn)) {
 
-//       if (pushedOperator.length === 0) {
-
-//          currentPushedNr += currentValueBtn; 
-//          currentPushedNrClone = currentPushedNr;
-//          currentPushedNrClone3 = currentPushedNrClone;
-//       }
 
 //       if (pushedOperator.length !== 0) {
 //          currentPushedNr = '';
