@@ -145,24 +145,25 @@ class Calculator {
 			return;
 		}
 
-		const [displayValue, previousValue] = this.getDisplayAndPreviousValue(hasRepeatedValue);
+		const [displayValue, previousValue] =
+			this.getDisplayAndPreviousValue(hasRepeatedValue);
 		const newValue = displayValue + previousValue;
 
-		this.isFunctionDone = true;
-      this.getRepeatedValue(hasRepeatedValue, newValue);
-      this.setValuesAfterSettingNewValue();
+		this.getRepeatedValue(hasRepeatedValue, newValue);
+		this.setValuesAfterSettingNewValue(newValue);
 	}
 
 	substraction(hasRepeatedValue) {
 		this.callPreviousFuncAndAssignNew(this.substraction, hasRepeatedValue);
 
 		if (this.isFunctionDone) {
-         this.setValuesForIsFuncDone(); 
+			this.setValuesForIsFuncDone();
 
 			return;
 		}
 
-		const [displayValue, previousValue] = this.getDisplayAndPreviousValue(hasRepeatedValue);
+		const [displayValue, previousValue] =
+			this.getDisplayAndPreviousValue(hasRepeatedValue);
 
 		let newValue;
 
@@ -173,10 +174,13 @@ class Calculator {
 
 			this.getRepeatedValue(hasRepeatedValue, newValue);
 		}
+		this.setValuesAfterSettingNewValue(newValue);
+	}
 
+	setValuesAfterSettingNewValue(newValue) {
 		this.isFunctionDone = true;
 		this.wasEqualClicked = false;
-		this.displayValue = null;
+		this.displayValue = null; 
 		this.displayPushedNr.textContent =
 			this.previousValue !== null
 				? newValue
@@ -185,30 +189,23 @@ class Calculator {
 			this.previousValue !== null
 				? newValue
 				: this.displayPushedNr.textContent;
-   }
-   
-   setValuesAfterSettingNewValue() {
-      this.wasEqualClicked = false;
-		this.previousValue = newValue;
-		this.displayValue = null;
-		this.displayPushedNr.textContent = newValue;
-   }
+	}
 
-   getRepeatedValue(hasRepeatedValue, newValue) {
-      this.repeatedValue = hasRepeatedValue
+	getRepeatedValue(hasRepeatedValue, newValue) {
+		this.repeatedValue = hasRepeatedValue
 			? this.repeatedValue
 			: this.wasEqualClicked
 			? newValue
 			: Number(this.displayPushedNr.textContent);
-   }
+	}
 
 	getDisplayAndPreviousValue(hasRepeatedValue) {
 		const displayValue = Number(this.displayPushedNr.textContent);
 		const previousValue = hasRepeatedValue
 			? this.repeatedValue
-         : Number(this.previousValue);
-      
-      return [displayValue, previousValue];
+			: Number(this.previousValue);
+
+		return [displayValue, previousValue];
 	}
 
 	setValuesForIsFuncDone() {
