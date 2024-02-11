@@ -64,6 +64,9 @@ class Calculator {
 				case "-":
 					this.substraction();
 					break;
+				case "x":
+					this.multiplication();
+					break;
 			}
 		}
 
@@ -148,6 +151,23 @@ class Calculator {
 		const [displayValue, previousValue] =
 			this.getDisplayAndPreviousValue(hasRepeatedValue);
 		const newValue = displayValue + previousValue;
+
+		this.getRepeatedValue(hasRepeatedValue, newValue);
+		this.setValuesAfterSettingNewValue(newValue);
+	}
+
+	multiplication(hasRepeatedValue) {
+		this.callPreviousFuncAndAssignNew(this.multiplication, hasRepeatedValue);
+
+		if (this.isFunctionDone) {
+			this.setValuesForIsFuncDone();
+
+			return;
+		}
+
+		const [displayValue, previousValue] =
+			this.getDisplayAndPreviousValue(hasRepeatedValue);
+		const newValue = displayValue * previousValue;
 
 		this.getRepeatedValue(hasRepeatedValue, newValue);
 		this.setValuesAfterSettingNewValue(newValue);
