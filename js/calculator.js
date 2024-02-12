@@ -197,6 +197,30 @@ class Calculator {
 		this.setValuesAfterSettingNewValue(newValue);
 	}
 
+	divide(hasRepeatedValue) {
+		this.callPreviousFuncAndAssignNew(this.divide, hasRepeatedValue);
+
+		if (this.isFunctionDone) {
+			this.setValuesForIsFuncDone();
+
+			return;
+		}
+
+		const [displayValue, previousValue] =
+			this.getDisplayAndPreviousValue(hasRepeatedValue);
+
+		let newValue;
+
+		if (this.previousValue !== null) {
+			newValue = hasRepeatedValue
+				? displayValue - this.repeatedValue
+				: previousValue - displayValue;
+
+			this.getRepeatedValue(hasRepeatedValue, newValue);
+		}
+		this.setValuesAfterSettingNewValue(newValue);
+	}
+
 	setValuesAfterSettingNewValue(newValue) {
 		this.isFunctionDone = true;
 		this.wasEqualClicked = false;
