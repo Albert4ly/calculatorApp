@@ -209,15 +209,13 @@ class Calculator {
 		const [displayValue, previousValue] =
 			this.getDisplayAndPreviousValue(hasRepeatedValue);
 
-		let newValue;
+		const newValue = hasRepeatedValue
+			? displayValue / this.repeatedValue
+			: previousValue === 0
+				? displayValue
+				: previousValue / displayValue;
 
-		if (this.previousValue !== null) {
-			newValue = hasRepeatedValue
-				? displayValue - this.repeatedValue
-				: previousValue - displayValue;
-
-			this.getRepeatedValue(hasRepeatedValue, newValue);
-		}
+		this.getRepeatedValue(hasRepeatedValue, newValue);
 		this.setValuesAfterSettingNewValue(newValue);
 	}
 
