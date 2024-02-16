@@ -50,7 +50,7 @@ class Calculator {
 			".",
 			"=",
 		];
-		const basicSignsArr = ["+", "-", "x", "/"];
+		const basicSignsArr = ["+", "-", "x", "/", "="];
 
 		if (!signsArr.includes(e.target.value)) {
 			this.concatenateNumber(e);
@@ -69,6 +69,9 @@ class Calculator {
 					break;
 				case "/":
 					this.divide();
+					break;
+				case "=":
+					this.equal();
 			}
 		}
 
@@ -219,6 +222,17 @@ class Calculator {
 
 		this.getRepeatedValue(hasRepeatedValue, newValue);
 		this.setValuesAfterSettingNewValue(newValue);
+	}
+
+	equal() {
+		this.isFunctionDone = false;
+		if (!this.wasEqualClicked) {
+			this.selectedFunction(false);
+		} else {
+			this.selectedFunction(true);
+		}
+
+		this.wasEqualClicked = true;
 	}
 
 	setValuesAfterSettingNewValue(newValue) {
