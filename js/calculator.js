@@ -67,6 +67,8 @@ class Calculator {
 				case "x":
 					this.multiplication();
 					break;
+				case "/":
+					this.divide();
 			}
 		}
 
