@@ -90,6 +90,9 @@ class Calculator {
 					break;
 				case "+/-":
 					this.inversion();
+					break;
+				case ".":
+					this.addComma();
 			}
 		}
 	}
@@ -244,13 +247,23 @@ class Calculator {
 	}
 
 	inversion() {
-		this.changeDisplayValue(this.displayValue >= 0 ? -Math.abs(this.displayValue) : Math.abs(this.displayValue));
+		this.changeDisplayValue(
+			this.displayValue >= 0
+				? -Math.abs(this.displayValue)
+				: Math.abs(this.displayValue)
+		);
 	}
 
 	backDisplay() {
 		this.changeDisplayValue(
 			this.displayValue ? this.displayValue.slice(0, -1) : null
 		);
+	}
+
+	addComma() {
+		if (!this.displayPushedNr.textContent.includes(".")) {
+			this.changeDisplayValue(`${this.displayValue ? this.displayValue : '0'}.`);
+		}
 	}
 
 	setValuesAfterSettingNewValue(newValue) {
@@ -301,8 +314,7 @@ class Calculator {
 		const isNoValue = value === null || value === "";
 
 		this.displayValue = value;
-		this.displayPushedNr.textContent =
-			isNoValue ? "0" : value.toString();
+		this.displayPushedNr.textContent = isNoValue ? "0" : value.toString();
 	}
 }
 
