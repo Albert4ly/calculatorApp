@@ -85,6 +85,8 @@ class Calculator {
 				case "C":
 					this.cancelDisplay();
 					break;
+				case "X":
+					this.backDisplay();
 			}
 		}
 	}
@@ -235,6 +237,10 @@ class Calculator {
 		this.wasEqualClicked = true;
 	}
 
+	backDisplay() {
+		this.changeDisplayValue(this.displayValue ? this.displayValue.slice(0, -1) : null);
+	}
+
 	setValuesAfterSettingNewValue(newValue) {
 		this.isFunctionDone = true;
 		this.wasEqualClicked = false;
@@ -293,10 +299,6 @@ new Calculator();
 //    if (currentValueBtn.includes('x^')) {
 //       let digit = Number(currentPushedNr);
 //       currentPushedNr = Math.pow(digit, 2);
-//       currentPushedNrClone = currentPushedNr;
-//       currentPushedNrClone2 = currentPushedNr;
-//       currentPushedNrClone3 = currentPushedNr;
-//       displayPushedNr.innerHTML = currentPushedNr;
 //    }
 
 // function displayLastBtns(concatenatedStrs) {
@@ -315,26 +317,4 @@ new Calculator();
 
 // }
 
-// function result(digitToMathOperation, digitToMathOperation2, pushedOperator) {
 
-//    if ((pushedOperator === '+') && (digitToMathOperation2 > 1) ) {
-//       resultOfOperation = digitToMathOperation + digitToMathOperation2;
-//       resultOfOperation2 = resultOfOperation;
-//    }
-
-//    if ((pushedOperator === 'x') && (digitToMathOperation2 > 1)) {
-//       resultOfOperation = digitToMathOperation * digitToMathOperation2;
-//       resultOfOperation2 = resultOfOperation;
-//    }
-
-//    if ((pushedOperator === '-') && (digitToMathOperation2 > 1)) {
-//       resultOfOperation = digitToMathOperation - digitToMathOperation2;
-//       resultOfOperation2 = resultOfOperation;
-//    }
-
-//    if ((pushedOperator === '/') && (digitToMathOperation2 > 1)) {
-//       resultOfOperation = digitToMathOperation / digitToMathOperation2;
-//       resultOfOperation2 = resultOfOperation;
-//    }
-
-// }
