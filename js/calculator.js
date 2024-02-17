@@ -164,7 +164,10 @@ class Calculator {
 	}
 
 	multiplication(hasRepeatedValue) {
-		this.callPreviousFuncAndAssignNew(this.multiplication, hasRepeatedValue);
+		this.callPreviousFuncAndAssignNew(
+			this.multiplication,
+			hasRepeatedValue
+		);
 
 		if (this.isFunctionDone) {
 			this.setValuesForIsFuncDone();
@@ -219,8 +222,8 @@ class Calculator {
 		const newValue = hasRepeatedValue
 			? displayValue / this.repeatedValue
 			: previousValue === 0
-				? displayValue
-				: previousValue / displayValue;
+			? displayValue
+			: previousValue / displayValue;
 
 		this.getRepeatedValue(hasRepeatedValue, newValue);
 		this.setValuesAfterSettingNewValue(newValue);
@@ -238,13 +241,15 @@ class Calculator {
 	}
 
 	backDisplay() {
-		this.changeDisplayValue(this.displayValue ? this.displayValue.slice(0, -1) : null);
+		this.changeDisplayValue(
+			this.displayValue ? this.displayValue.slice(0, -1) : null
+		);
 	}
 
 	setValuesAfterSettingNewValue(newValue) {
 		this.isFunctionDone = true;
 		this.wasEqualClicked = false;
-		this.displayValue = null; 
+		this.displayValue = null;
 		this.displayPushedNr.textContent =
 			this.previousValue !== null
 				? newValue
@@ -286,9 +291,11 @@ class Calculator {
 	}
 
 	changeDisplayValue(value) {
+		const isNoValue = value === null || value === "";
+
 		this.displayValue = value;
 		this.displayPushedNr.textContent =
-			value === null ? "0" : value.toString();
+			isNoValue ? "0" : value.toString();
 	}
 }
 
@@ -316,5 +323,3 @@ new Calculator();
 //    }
 
 // }
-
-
