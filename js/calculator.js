@@ -97,6 +97,9 @@ class Calculator {
 				case "%":
 					this.percent();
 					break;
+				case "√":
+					this.square();
+					break;
 			}
 		}
 	}
@@ -252,6 +255,14 @@ class Calculator {
 
 	percent() {
 		const newValue = this.previousValue * this.displayValue / 100;
+
+		this.wasSpecialFunctionClicked = true;
+		this.wasEqualClicked = false;
+		this.changeDisplayValue(newValue);
+	}
+
+	square() {
+		const newValue = Math.sqrt(this.displayValue);
 
 		this.wasSpecialFunctionClicked = true;
 		this.wasEqualClicked = false;
