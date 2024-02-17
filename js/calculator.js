@@ -93,6 +93,10 @@ class Calculator {
 					break;
 				case ".":
 					this.addComma();
+					break;
+				case "%":
+					this.percent();
+					break;
 			}
 		}
 	}
@@ -244,6 +248,14 @@ class Calculator {
 		}
 
 		this.wasEqualClicked = true;
+	}
+
+	percent() {
+		const newValue = this.previousValue * this.displayValue / 100;
+
+		this.wasSpecialFunctionClicked = true;
+		this.wasEqualClicked = false;
+		this.changeDisplayValue(newValue);
 	}
 
 	inversion() {
