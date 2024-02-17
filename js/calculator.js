@@ -87,6 +87,9 @@ class Calculator {
 					break;
 				case "X":
 					this.backDisplay();
+					break;
+				case "+/-":
+					this.inversion();
 			}
 		}
 	}
@@ -238,6 +241,10 @@ class Calculator {
 		}
 
 		this.wasEqualClicked = true;
+	}
+
+	inversion() {
+		this.changeDisplayValue(this.displayValue >= 0 ? -Math.abs(this.displayValue) : Math.abs(this.displayValue));
 	}
 
 	backDisplay() {
