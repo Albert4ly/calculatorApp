@@ -100,6 +100,11 @@ class Calculator {
 				case "√":
 					this.square();
 					break;
+				case "x^":
+					this.power();
+					break;
+				case "f":
+					this.oneXth();
 			}
 		}
 	}
@@ -254,19 +259,25 @@ class Calculator {
 	}
 
 	percent() {
-		const newValue = this.previousValue * this.displayValue / 100;
-
-		this.wasSpecialFunctionClicked = true;
-		this.wasEqualClicked = false;
-		this.changeDisplayValue(newValue);
+		this.callSpecialFunc(this.previousValue * this.displayValue / 100);
 	}
 
 	square() {
-		const newValue = Math.sqrt(this.displayValue);
+		this.callSpecialFunc(Math.sqrt(this.displayValue));
+	}
 
+	oneXth() {
+		this.callSpecialFunc( 1 / this.displayValue);
+	}
+
+	power() {
+		this.callSpecialFunc(Math.pow(this.displayValue, 2));
+	}
+
+	callSpecialFunc(value) {
 		this.wasSpecialFunctionClicked = true;
 		this.wasEqualClicked = false;
-		this.changeDisplayValue(newValue);
+		this.changeDisplayValue(value);
 	}
 
 	inversion() {
@@ -342,26 +353,3 @@ class Calculator {
 }
 
 new Calculator();
-
-// function compounding(currentPushedNr, currentPushedNrClone, currentPushedNrClone2, currentPushedNrClone3) {
-
-//    if (currentValueBtn.includes('x^')) {
-//       let digit = Number(currentPushedNr);
-//       currentPushedNr = Math.pow(digit, 2);
-//    }
-
-// function displayLastBtns(concatenatedStrs) {
-
-//    if ((resultOfOperation < 1) || (pushedOperator.length < 1)) {
-//       displayLastPushedBtns.innerHTML = concatenatedStrs;
-//    }
-
-//    if ((resultOfOperation > 1) && (pushedOperator.length < 1)) {
-//       displayLastPushedBtns.innerHTML = resultOfOperation2 + pushedOperatorClone2;
-//    }
-
-//    if ((resultOfOperation > 1) && (pushedOperator.length > 0)) {
-//       displayLastPushedBtns.innerHTML = resultOfOperation + pushedOperator;
-//    }
-
-// }
